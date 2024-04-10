@@ -1,0 +1,10 @@
+.dark-mode {
+    background-color: black;
+    color: white; /* Change text color to ensure readability */
+  }
+  
+  .dark-mode, .dark-mode div, .dark-mode header, .dark-mode section, .dark-mode article, .dark-mode body {
+    background-color: black;
+    color: white; /* Adjust text color to ensure readability against the dark background */
+  }
+  
