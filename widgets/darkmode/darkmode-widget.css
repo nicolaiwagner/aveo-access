@@ -14,24 +14,26 @@
   color: white;
 }
 
-.dark-mode .dark-mode-link {
+/* .dark-mode .dark-mode-link {
   color: white;
-}
+} */
 
 .dark-mode .dark-mode-span {
   color: white;
 }
 
-#dark-mode-toggle {
-  background-color: #000;  /* Default background color */
-  color: #fff;             /* Default text color */
-  border: none;            /* No border by default */
-  padding: 10px 20px;      /* Padding for the button */
-  cursor: pointer;         /* Cursor to pointer to indicate it's clickable */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+/* #dark-mode-toggle {
+  background-color: #000;  
+  color: #fff;            
+  border: none;            
+  padding: 10px 20px;     
+  cursor: pointer;         
+  transition: background-color 0.3s ease; 
+  
 }
 
 #dark-mode-toggle:hover {
-  background-color: #333; /* Darker background on hover */
-  opacity: 0.8;           /* Slight transparency on hover */
-}
+  background-color: #333; 
+  opacity: 0.8;           
+}   */
