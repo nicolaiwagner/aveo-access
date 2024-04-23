@@ -1,9 +1,7 @@
-/*.dark-mode {
-  background-color: black;
-  color: white;
-} */
+
 .dark-mode .dark-mode-bg {
   background-color: #333;
+  
 }
 
 .dark-mode .dark-mode-header {
@@ -14,26 +12,10 @@
   color: white;
 }
 
-/* .dark-mode .dark-mode-link {
-  color: white;
-} */
-
 .dark-mode .dark-mode-span {
   color: white;
 }
 
-
-/* #dark-mode-toggle {
-  background-color: #000;  
-  color: #fff;            
-  border: none;            
-  padding: 10px 20px;     
-  cursor: pointer;         
-  transition: background-color 0.3s ease; 
-  
+.dark-mode .dark-mode-div-bg {
+  background-color: #333;
 }
-
-#dark-mode-toggle:hover {
-  background-color: #333; 
-  opacity: 0.8;           
-}   */

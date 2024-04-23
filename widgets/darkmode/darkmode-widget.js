@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("p").forEach(function (element) {
       element.classList.toggle("dark-mode-paragraph");
     });
+    document.querySelectorAll("main div").forEach(function (element) {
+      element.classList.toggle("dark-mode-div-bg");
+    });
     document.querySelectorAll("a").forEach(function (element) {
       element.classList.toggle("dark-mode-link");
     });

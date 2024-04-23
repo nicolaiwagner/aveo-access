@@ -46,6 +46,55 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             ]
         );
 
+        // Icon size control
+        $this->add_control(
+            'icon_font_size',
+            [
+                'label' => __( 'Icon Size', 'aveo-access' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', 'em', 'rem' ],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                    'em' => [
+                        'min' => 0.5,
+                        'max' => 5,
+                        'step' => 0.1,
+                    ],
+                    'rem' => [
+                        'min' => 0.5,
+                        'max' => 5,
+                        'step' => 0.1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 24,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} i#dark-mode-toggle.darkmode-toggle' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        
+
+        // Icon color control
+        $this->add_control(
+            'icon_color',
+            [
+                'label' => __( 'Icon Color', 'aveo-access' ),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',  // Provide a default color
+                'selectors' => [
+                    '{{WRAPPER}} i#dark-mode-toggle.darkmode-toggle' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        
+
       
 
         // Button text field
@@ -96,6 +145,18 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     'background-color: {{VALUE}}; color: white;',
+                ],
+            ]
+        );
+
+        // Color picker for div element background
+        $this->add_control(
+            'dark_mode_div_bg_color',
+            [
+                'label' => __( 'Dark Mode Div Background Color', 'aveo-access' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+               'selectors' => [
+                    'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -179,11 +240,12 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'button_text_color',
             [
-                'label' => __( 'Button Text Color', 'aveo-access' ),
-                'type' => Controls_Manager::COLOR,
+                'label' => __('Button Text Color', 'text-domain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} #dark-mode-toggle' => 'color: {{VALUE}};',
                 ],
+                'default' => '#ffffff', // Ensure default is a string
             ]
         );
 
@@ -279,15 +341,12 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->end_controls_section();
 
         }                  
-                
-    
-//.dark-mode-bg, div.dark-mode-bg, .dark-mode-bg header, .dark-mode-bg section, .dark-mode-bg article, dark-mode-bg ul
-
 
 
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
 
         if ($settings['toggle_type'] === 'button') {
             ?>
@@ -297,13 +356,22 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             ?>
             <i id="dark-mode-toggle" class="darkmode-toggle eicon-adjust"></i>
             <?php
-        }
+        } 
+
+
         echo '<style>';
         if (!empty($settings['dark_mode_bg_color'])) {
             echo '
-                .dark-mode-bg, .dark-mode-bg div, .dark-mode-bg header, .dark-mode-bg section, .dark-mode-bg article {
-                    background-color: ' . $settings['dark_mode_bg_color'] . ';
+                .dark-mode-bg, .dark-mode-bg header, .dark-mode-bg section, .dark-mode-bg article .dark-mode-bg #elementor-menu-cart__main {
+                    background-color: ' . $settings['dark_mode_bg_color'] . ' !important;
                     
+                }
+            ';
+        }
+        if (!empty($settings['dark_mode_div_bg_color'])) {
+            echo '
+                div.dark-mode-div-bg, #e-con-inner.dark-mode-div-bg {
+                    background-color: ' . $settings['dark_mode_div_bg_color'] . ' !important;
                 }
             ';
         }
@@ -317,7 +385,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         }
         if (!empty($settings['dark_mode_paragraph_color'])) {
             echo '
-                p.dark-mode-paragraph {
+                p.dark-mode-paragraph, ul.dark-mode-paragraph {
                     color: ' . $settings['dark_mode_paragraph_color'] . ' !important;
                     
                 }
@@ -327,7 +395,8 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             echo '
                 a.dark-mode-link  {
                     color: ' . $settings['dark_mode_a_color'] . ' !important;
-                    background-color: ' . $settings['dark_mode_bg_color'] . ' !important;
+                    
+                    
                 }
             ';
         }
@@ -335,10 +404,11 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             echo '
                 span.dark-mode-span {
                     color: ' . $settings['dark_mode_span_color'] . ' !important;
+                    
                 }
             ';
         }
-        echo '</style>';
+        echo '</style>'; 
     }
 
     public function _content_template() {
@@ -355,7 +425,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         }
         #>
         <?php
-    }
+    } 
 }
 
 
