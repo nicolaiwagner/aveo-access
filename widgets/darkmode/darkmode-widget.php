@@ -15,10 +15,18 @@ class Darkmode_Widget extends Elementor\Widget_Base {
     public function get_icon() {
         return 'eicon-adjust';
     }
-
+    
     public function get_style_depends() {
-        wp_enqueue_script( 'darkmode-widget', plugin_dir_url( __FILE__ ) . 'darkmode-widget.js', array( 'jquery' ), '1.0', true );
-        wp_enqueue_style( 'darkmode-widget', plugin_dir_url( __FILE__ ) . 'darkmode-widget.css' );
+        // Register styles first (this method only registers, doesn't enqueue)
+        wp_register_style('darkmode-widget', plugin_dir_url( __FILE__ ) . 'darkmode-widget.css');
+        return ['darkmode-widget'];
+    }
+
+    // Ensure this function also returns an array
+    public function get_script_depends() {
+        // Register scripts first
+        wp_register_script('darkmode-widget', plugin_dir_url( __FILE__ ) . 'darkmode-widget.js', ['jquery'], '1.0', true);
+        return ['darkmode-widget'];
     }
 
     protected function _register_controls() {

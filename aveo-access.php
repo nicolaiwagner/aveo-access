@@ -31,7 +31,9 @@ if ( is_plugin_active( 'elementor/elementor.php' ) ) {
    add_action( 'elementor/widgets/widgets_registered', 'aveo_access_register_custom_widgets');
    function aveo_access_register_custom_widgets( $widgets_manager) {
       require_once plugin_dir_path( __FILE__ ) . 'widgets/darkmode/darkmode-widget.php';
+      require_once plugin_dir_path( __FILE__ ) . 'widgets/pagereader/pagereader-widget.php';
       $widgets_manager->register( new \Darkmode_Widget() );
+      $widgets_manager->register( new \Pagereader_Widget() );
    }
 
 
