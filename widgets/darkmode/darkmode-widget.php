@@ -42,7 +42,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                     'icon' => __( 'Icon', 'aveo-access' ),
                 ],
                 'default' => 'button',
-                'description' => __( 'Choose between a button or an icon for the dark mode toggle.', 'aveo-access' ),
+                'description' => __( 'Vælg mellem knap eller icon til at toggle darkmode', 'aveo-access' ),
             ]
         );
 
@@ -74,8 +74,12 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                     'unit' => 'px',
                     'size' => 24,
                 ],
+                'condition' => [
+                    'toggle_type' => 'icon',
+                ],
                 'selectors' => [
                     '{{WRAPPER}} i#dark-mode-toggle.darkmode-toggle' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} i#light-mode-toggle.light-mode-icon' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );
@@ -88,11 +92,31 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 'label' => __( 'Icon Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',  // Provide a default color
+                'condition' => [
+                    'toggle_type' => 'icon',
+                ],
                 'selectors' => [
                     '{{WRAPPER}} i#dark-mode-toggle.darkmode-toggle' => 'color: {{VALUE}};',
                 ],
             ]
         );
+        // Light Mode Icon Color
+        $this->add_control(
+            'light_mode_icon_color',
+            [
+                'label' => __( 'Light Mode Icon Color', 'aveo-access' ),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ffffff', // Default color for light mode icon
+                'selectors' => [
+                    '{{WRAPPER}} i#light-mode-toggle.light-mode-icon' => 'color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'toggle_type' => 'icon',
+                ],
+            ]
+        );
+
+        
         
 
       
@@ -221,6 +245,9 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         [
             'label' => __( 'Style', 'aveo-access' ),
             'tab' => Controls_Manager::TAB_STYLE,
+            'condition' => [
+                'toggle_type' => 'button',
+            ],
         ]
     );
             // Control typography for the button
@@ -299,6 +326,18 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             ]
         );
 
+        //Control border style color for buttons
+        $this->add_control(
+            'button_border_color',
+            [
+                'label' => __( 'Button Border Color', 'aveo-access' ),
+                'type' => Controls_Manager::COLOR,
+               'selectors' => [
+                    '{{WRAPPER}} #dark-mode-toggle' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
         // Control border radius for the button
         $this->add_control(
             'button_border_radius',
@@ -346,9 +385,10 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+        $this->enqueue_scripts();
 
 
-        if ($settings['toggle_type'] === 'button') {
+        /*if ($settings['toggle_type'] === 'button') {
             ?>
             <button id="dark-mode-toggle" class="darkmode-toggle"><?php echo esc_html($settings['button_text']); ?></button>
             <?php
@@ -356,7 +396,19 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             ?>
             <i id="dark-mode-toggle" class="darkmode-toggle eicon-adjust"></i>
             <?php
-        } 
+        } */
+
+        if ($settings['toggle_type'] === 'button') {
+            ?>
+            <button id="dark-mode-toggle" class="darkmode-toggle"><?php echo esc_html($settings['button_text']); ?></button>
+            <?php
+        } elseif ($settings['toggle_type'] === 'icon') {
+            $light_mode_icon = 'fa-regular fa-lightbulb';  // Default icon for light mode
+            ?>
+            <i id="dark-mode-toggle" class="darkmode-toggle eicon-adjust"></i>
+            <i id="light-mode-toggle" class="light-mode-icon <?php echo esc_attr($light_mode_icon); ?>" style="display: none;"></i>
+            <?php
+        }
 
 
         echo '<style>';
