@@ -56,7 +56,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Icon size control
         $this->add_control(
-            'icon_font_size',
+            'dark_mode_icon_font_size',
             [
                 'label' => __( 'Icon Size', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
@@ -95,7 +95,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Icon color control
         $this->add_control(
-            'icon_color',
+            'dark_mode_icon_color',
             [
                 'label' => __( 'Icon Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
@@ -110,7 +110,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         );
         // Light Mode Icon Color
         $this->add_control(
-            'light_mode_icon_color',
+            'dark_mode_light_mode_icon_color',
             [
                 'label' => __( 'Light Mode Icon Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
@@ -131,7 +131,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Button text field
         $this->add_control(
-            'button_text',
+            'dark_mode_button_text',
             [
                 'label' => __( 'Button Text', 'aveo-access' ),
                 'type' => Controls_Manager::TEXT,
@@ -145,7 +145,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         );
         // Button size control
         $this->add_control(
-            'button_padding',
+            'dark_mode_button_padding',
             [
                 'label' => __( 'Button Size', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
@@ -262,7 +262,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name' => 'button_typography',
+                'name' => 'dark_mode_button_typography',
                 'label' => __( 'Button Typography', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #dark-mode-toggle',
                 'condition' => [
@@ -273,7 +273,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Control text color for the button
         $this->add_control(
-            'button_text_color',
+            'dark_mode_button_text_color',
             [
                 'label' => __('Button Text Color', 'text-domain'),
                 'type' => \Elementor\Controls_Manager::COLOR,
@@ -286,7 +286,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Control text size 
         $this->add_control(
-            'button_text_size',
+            'dark_mode_button_text_size',
             [
                 'label' => __( 'Button Text Size', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
@@ -300,7 +300,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Control background color for the button
         $this->add_control(
-            'button_background_color',
+            'dark_mode_button_background_color',
             [
                 'label' => __( 'Button Background Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
@@ -312,7 +312,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Control border style for the button
         $this->add_control(
-            'button_border_type',
+            'dark_mode_button_border_type',
             [
                 'label' => __( 'Button Border Type', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
@@ -336,7 +336,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         //Control border style color for buttons
         $this->add_control(
-            'button_border_color',
+            'dark_mode_button_border_color',
             [
                 'label' => __( 'Button Border Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
@@ -348,7 +348,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Control border radius for the button
         $this->add_control(
-            'button_border_radius',
+            'dark_mode_button_border_radius',
             [
                 'label' => __( 'Button Border Radius', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -363,7 +363,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'button_box_shadow',
+                'name' => 'dark_mode_button_box_shadow',
                 'label' => __( 'Button Box Shadows', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #dark-mode-toggle',
             ]
@@ -371,7 +371,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         // Control padding (spacing) for the button
         $this->add_responsive_control(
-            'button_spacing',
+            'dark_mode_button_spacing',
             [
                 'label' => __( 'Button Spacing', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -408,7 +408,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
         if ($settings['toggle_type'] === 'button') {
             ?>
-            <button id="dark-mode-toggle" class="darkmode-toggle"><?php echo esc_html($settings['button_text']); ?></button>
+            <button id="dark-mode-toggle" class="darkmode-toggle"><?php echo esc_html($settings['dark_mode_button_text']); ?></button>
             <?php
         } elseif ($settings['toggle_type'] === 'icon') {
             $light_mode_icon = 'fa-regular fa-lightbulb';  // Default icon for light mode
@@ -476,7 +476,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         <#
         if (settings.toggle_type === 'button') {
         #>
-            <button id="dark-mode-toggle" class="darkmode-toggle">{{{ settings.button_text }}}</button>
+            <button id="dark-mode-toggle" class="darkmode-toggle">{{{ settings.dark_mode_button_text }}}</button>
         <#
         } else if (settings.toggle_type === 'icon') {
         #>

@@ -2,31 +2,31 @@
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-class Pagereader_Widget extends Elementor\Widget_Base {
+class Control_Text_Widget extends Elementor\Widget_Base {
 
     public function get_name() {
-        return 'pagereader_widget';
+        return 'controltext_widget';
     }
 
     public function get_title() {
-        return 'Aveo WA - Page Reader TTS';
+        return 'Aveo WA - Text size control';
     }
 
     public function get_icon() {
-        return 'fa-solid fa-book-open-reader';
+        return 'fa-solid fa-text-height';
     }
 
     public function get_style_depends() {
         // Register styles first (this method only registers, doesn't enqueue)
-        wp_register_style('pagereader-widget', plugin_dir_url( __FILE__ ) . 'pagereader-widget.css');
-        return ['pagereader-widget'];
+        wp_register_style('control-text-widget', plugin_dir_url( __FILE__ ) . 'control-text-widget.css');
+        return ['control-text-widget'];
     }
 
     // Ensure this function also returns an array
     public function get_script_depends() {
         // Register scripts first
-        wp_register_script('pagereader-widget', plugin_dir_url( __FILE__ ) . 'pagereader-widget.js', ['jquery'], '1.0', true);
-        return ['pagereader-widget'];
+        wp_register_script('control-text-widget', plugin_dir_url( __FILE__ ) . 'control-text-widget.js', ['jquery'], '1.0', true);
+        return ['control-text-widget'];
     }
 
     protected function _register_controls() {
@@ -38,7 +38,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
-        
+ /*       
         // Toggle type icon/button
         $this->add_control(
             'toggle_type',
@@ -56,7 +56,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Icon size control
         $this->add_control(
-            'page_reader_icon_font_size',
+            'control_text_icon_font_size',
             [
                 'label' => __( 'Icon Size', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
@@ -95,9 +95,9 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Icon color control
         $this->add_control(
-            'page_reader_icon_color',
+            'control_text_icon_color',
             [
-                'label' => __( 'Turn Off TTS - Icon Color', 'aveo-access' ),
+                'label' => __( 'Icon Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',  // Provide a default color
                 'condition' => [
@@ -111,9 +111,9 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         // TTS on Icon Color 
         
         $this->add_control(
-            'page_reader_light_mode_icon_color',
+            'control_text_light_mode_icon_color',
             [
-                'label' => __( 'Turn Off TTS - Icon Color', 'aveo-access' ),
+                'label' => __( 'Light Mode Icon Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff', // Default color for light mode icon
                 'selectors' => [
@@ -132,7 +132,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Button text field
         $this->add_control(
-            'page_reader_button_text',
+            'control_text_button_text',
             [
                 'label' => __( 'Button Text', 'aveo-access' ),
                 'type' => Controls_Manager::TEXT,
@@ -146,7 +146,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         );
         // Button size control
         $this->add_control(
-            'page_reader_button_padding',
+            'control_text_button_padding',
             [
                 'label' => __( 'Button Size', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
@@ -168,7 +168,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         ); 
         
         
-
+*/
         
         // END: Content tab
         $this->end_controls_section();
@@ -189,7 +189,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name' => 'page_reader_button_typography',
+                'name' => 'control_text_button_typography',
                 'label' => __( 'Button Typography', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #page-reader-toggle',
                 'condition' => [
@@ -200,7 +200,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Control text color for the button
         $this->add_control(
-            'page_reader_button_text_color',
+            'control_text_button_text_color',
             [
                 'label' => __('Button Text Color', 'text-domain'),
                 'type' => \Elementor\Controls_Manager::COLOR,
@@ -213,7 +213,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Control text size 
         $this->add_control(
-            'page_reader_button_text_size',
+            'control_text_button_text_size',
             [
                 'label' => __( 'Button Text Size', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
@@ -227,7 +227,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Control background color for the button
         $this->add_control(
-            'page_reader_button_background_color',
+            'control_text_button_background_color',
             [
                 'label' => __( 'Button Background Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
@@ -239,7 +239,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Control border style for the button
         $this->add_control(
-            'page_reader_button_border_type',
+            'control_text_button_border_type',
             [
                 'label' => __( 'Button Border Type', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
@@ -263,7 +263,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         //Control border style color for buttons
         $this->add_control(
-            'page_reader_button_border_color',
+            'control_text_button_border_color',
             [
                 'label' => __( 'Button Border Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
@@ -275,7 +275,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Control border radius for the button
         $this->add_control(
-            'page_reader_button_border_radius',
+            'control_text_button_border_radius',
             [
                 'label' => __( 'Button Border Radius', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -290,7 +290,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'page_reader_button_box_shadow',
+                'name' => 'control_text_button_box_shadow',
                 'label' => __( 'Button Box Shadows', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #page-reader-toggle',
             ]
@@ -298,7 +298,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
 
         // Control padding (spacing) for the button
         $this->add_responsive_control(
-            'page_reader_button_spacing',
+            'control_text_button_spacing',
             [
                 'label' => __( 'Button Spacing', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -315,7 +315,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->end_controls_section();
 
         }   
-
+/*
 
         protected function render() {
             $settings = $this->get_settings_for_display();
@@ -323,28 +323,26 @@ class Pagereader_Widget extends Elementor\Widget_Base {
     
             if ($settings['toggle_type'] === 'button') {
                 ?>
-                <button id="page-reader-toggle-button" class="pagereader-toggle"><?php echo esc_html($settings['page_reader_button_text']); ?></button>
+                <button id="control-text-toggle" class="controltext-toggle"><?php echo esc_html($settings['page_reader_button_text']); ?></button>
                 <?php
             } elseif ($settings['toggle_type'] === 'icon') {
                 $light_mode_icon = 'fa-solid fa-book-open';  // Default icon for light mode
                 ?>
-                <i id="page-reader-toggle" class="pagereader-toggle fa-solid fa-book"></i>
+                <i id="control-text-toggle" class="pagereader-toggle fa-solid fa-book"></i>
                 <i id="page-reader-toggle-off" class="page-reader-icon <?php echo esc_attr($light_mode_icon); ?>" style="display: none;"></i>
                 <?php
             }
     
     
            
-        } 
-        
-        
+        }
     
         public function _content_template() {
             ?>
             <#
             if (settings.toggle_type === 'button') {
             #>
-                <button id="page-reader-toggle-button" class="pagereader-toggle">{{{ settings.page_reader_button_text }}}</button>
+                <button id="page-reader-toggle" class="pagereader-toggle">{{{ settings.page_reader_button_text }}}</button>
             <#
             } else if (settings.toggle_type === 'icon') {
             #>
@@ -355,6 +353,6 @@ class Pagereader_Widget extends Elementor\Widget_Base {
             <?php
         } 
 
-
+*/
 
 }
