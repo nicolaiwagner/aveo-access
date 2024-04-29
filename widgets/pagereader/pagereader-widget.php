@@ -159,7 +159,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 ],
                 'default' => '10px 20px',
                 'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'padding: {{VALUE}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'padding: {{VALUE}};',
                 ],
                 'condition' => [
                     'toggle_type' => 'button',
@@ -191,7 +191,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
             [
                 'name' => 'page_reader_button_typography',
                 'label' => __( 'Button Typography', 'aveo-access' ),
-                'selector' => '{{WRAPPER}} #page-reader-toggle',
+                'selector' => '{{WRAPPER}} #page-reader-toggle-button',
                 'condition' => [
                     'toggle_type' => 'button',
                 ],
@@ -205,7 +205,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'label' => __('Button Text Color', 'text-domain'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'color: {{VALUE}};',
                 ],
                 'default' => '#ffffff', // Ensure default is a string
             ]
@@ -219,7 +219,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'em', 'rem' ],
                 'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
                 
             ]
@@ -232,7 +232,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'label' => __( 'Button Background Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -256,7 +256,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 ],
                 'default' => 'none',
                 'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'border-style: {{VALUE}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'border-style: {{VALUE}};',
                 ],
             ]
         );
@@ -268,7 +268,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'label' => __( 'Button Border Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -281,7 +281,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -292,7 +292,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
             [
                 'name' => 'page_reader_button_box_shadow',
                 'label' => __( 'Button Box Shadows', 'aveo-access' ),
-                'selector' => '{{WRAPPER}} #page-reader-toggle',
+                'selector' => '{{WRAPPER}} #page-reader-toggle-button',
             ]
         );
 
@@ -304,7 +304,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
-                    '{{WRAPPER}} #page-reader-toggle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} #page-reader-toggle-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
