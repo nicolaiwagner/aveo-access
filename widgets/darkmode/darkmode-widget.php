@@ -86,7 +86,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                     'toggle_type' => 'icon',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} i#dark-mode-toggle.darkmode-toggle' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} i#dark-mode-toggle-icon.darkmode-toggle' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} i#light-mode-toggle.light-mode-icon' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
             ]
@@ -97,14 +97,14 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_icon_color',
             [
-                'label' => __( 'Icon Color', 'aveo-access' ),
+                'label' => __( 'Icon Color for Darkmode', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',  // Provide a default color
                 'condition' => [
                     'toggle_type' => 'icon',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} i#dark-mode-toggle.darkmode-toggle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} i#dark-mode-toggle-icon.darkmode-toggle' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -178,6 +178,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 'selectors' => [
                     'background-color: {{VALUE}}; color: white;',
                 ],
+                'description' => __( 'Ændre farven på bagerste HTML elementer på siden', 'aveo-access' ),
             ]
         );
 
@@ -190,6 +191,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                'selectors' => [
                     'background-color: {{VALUE}};',
                 ],
+                'description' => __( 'Ændre baggrundsfarven på containers (div)', 'aveo-access' ),
             ]
         );
 
@@ -202,6 +204,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 'selectors' => [
                     'color: {{VALUE}};',
                 ],
+                'description' => __( 'Ændre farven på overskrifter (h1, h2 etc.) ', 'aveo-access' ),
             ]
         );
 
@@ -214,6 +217,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 'selectors' => [
                     'color: {{VALUE}}; ',
                 ],
+                'description' => __( 'Ændre farven på paragraf tekst på siden', 'aveo-access' ),
             ]
         );
 
@@ -226,6 +230,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 'selectors' => [
                     'color: {{VALUE}};',
                 ],
+                'description' => __( 'Ændre farven på a tags', 'aveo-access' ),
             ]
         );
 
@@ -391,40 +396,24 @@ class Darkmode_Widget extends Elementor\Widget_Base {
 
 
 
+    
     protected function render() {
         $settings = $this->get_settings_for_display();
         $this->enqueue_scripts();
-
-
-        /*if ($settings['toggle_type'] === 'button') {
-            ?>
-            <button id="dark-mode-toggle" class="darkmode-toggle"><?php echo esc_html($settings['button_text']); ?></button>
-            <?php
-        } elseif ($settings['toggle_type'] === 'icon') {
-            ?>
-            <i id="dark-mode-toggle" class="darkmode-toggle eicon-adjust"></i>
-            <?php
-        } */
-
+    
         if ($settings['toggle_type'] === 'button') {
-            ?>
-            <button id="dark-mode-toggle" class="darkmode-toggle"><?php echo esc_html($settings['dark_mode_button_text']); ?></button>
-            <?php
+            echo '<button id="dark-mode-toggle" class="darkmode-toggle">' . esc_html($settings['dark_mode_button_text']) . '</button>';
         } elseif ($settings['toggle_type'] === 'icon') {
             $light_mode_icon = 'fa-regular fa-lightbulb';  // Default icon for light mode
-            ?>
-            <i id="dark-mode-toggle" class="darkmode-toggle eicon-adjust"></i>
-            <i id="light-mode-toggle" class="light-mode-icon <?php echo esc_attr($light_mode_icon); ?>" style="display: none;"></i>
-            <?php
+            echo '<i id="dark-mode-toggle-icon" class="darkmode-toggle eicon-adjust"></i>';
+            echo '<i id="light-mode-toggle" class="light-mode-icon ' . esc_attr($light_mode_icon) . '" style="display: none;"></i>';
         }
-
-
+    
         echo '<style>';
         if (!empty($settings['dark_mode_bg_color'])) {
             echo '
-                .dark-mode-bg, .dark-mode-bg header, .dark-mode-bg section, .dark-mode-bg article .dark-mode-bg #elementor-menu-cart__main {
+                .dark-mode-bg, .dark-mode-bg header, .dark-mode-bg section, .dark-mode-bg article, .dark-mode-bg #elementor-menu-cart__main {
                     background-color: ' . $settings['dark_mode_bg_color'] . ' !important;
-                    
                 }
             ';
         }
@@ -435,7 +424,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 }
             ';
         }
-
+    
         if (!empty($settings['dark_mode_header_color'])) {
             echo '
                 h1.dark-mode-header, h2.dark-mode-header, h3.dark-mode-header, h4.dark-mode-header, h5.dark-mode-header, h6.dark-mode-header {
@@ -447,7 +436,6 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             echo '
                 p.dark-mode-paragraph, ul.dark-mode-paragraph {
                     color: ' . $settings['dark_mode_paragraph_color'] . ' !important;
-                    
                 }
             ';
         }
@@ -455,8 +443,6 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             echo '
                 a.dark-mode-link  {
                     color: ' . $settings['dark_mode_a_color'] . ' !important;
-                    
-                    
                 }
             ';
         }
@@ -464,13 +450,12 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             echo '
                 span.dark-mode-span {
                     color: ' . $settings['dark_mode_span_color'] . ' !important;
-                    
                 }
             ';
         }
-        echo '</style>'; 
+        echo '</style>';
     }
-
+    
     public function _content_template() {
         ?>
         <#
@@ -480,12 +465,14 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         <#
         } else if (settings.toggle_type === 'icon') {
         #>
-            <i id="dark-mode-toggle" class="darkmode-toggle eicon-adjust"></i>
+            <i id="dark-mode-toggle-icon" class="darkmode-toggle eicon-adjust"></i>
+            <i id="light-mode-toggle" class="light-mode-icon fa-regular fa-lightbulb" style="display: none;"></i>
         <#
         }
         #>
         <?php
-    } 
+    }
+    
 }
 
 

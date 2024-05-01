@@ -34,6 +34,64 @@
 //   }
 // });
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   const bodyClasses = document.body.classList;
+//   const elementsToUpdate = document.querySelectorAll(
+//     "h1, h2, h3, h4, h5, h6, p, main div, a, span"
+//   );
+
+//   const applyMode = (isDarkMode) => {
+//     bodyClasses.toggle("dark-mode-bg", isDarkMode);
+//     elementsToUpdate.forEach((element) => {
+//       element.classList.toggle(
+//         "dark-mode-header",
+//         isDarkMode && element.tagName.startsWith("H")
+//       );
+//       element.classList.toggle(
+//         "dark-mode-paragraph",
+//         isDarkMode && element.tagName === "P"
+//       );
+//       element.classList.toggle(
+//         "dark-mode-div-bg",
+//         isDarkMode && element.closest("main div")
+//       );
+//       element.classList.toggle(
+//         "dark-mode-link",
+//         isDarkMode && element.tagName === "A"
+//       );
+//       element.classList.toggle(
+//         "dark-mode-span",
+//         isDarkMode && element.tagName === "SPAN"
+//       );
+//     });
+//     localStorage.setItem("darkMode", isDarkMode);
+//   };
+
+//   const toggleDarkMode = () => applyMode(true);
+//   const toggleLightMode = () => applyMode(false);
+
+//   document
+//     .getElementById("dark-mode-toggle")
+//     .addEventListener("click", toggleDarkMode);
+//   document
+//     .getElementById("light-mode-toggle")
+//     .addEventListener("click", toggleLightMode);
+
+//   if (localStorage.getItem("darkMode") === "true") {
+//     toggleDarkMode();
+//   } else {
+//     toggleLightMode();
+//   }
+// });
+
+// jQuery(document).ready(function ($) {
+//   $("#dark-mode-toggle-icon, #light-mode-toggle").click(function () {
+//     // Toggle visibility between the dark mode and light mode icons
+//     $("#dark-mode-toggle-icon").toggle();
+//     $("#light-mode-toggle").toggle();
+//   });
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   const bodyClasses = document.body.classList;
   const elementsToUpdate = document.querySelectorAll(
@@ -64,30 +122,39 @@ document.addEventListener("DOMContentLoaded", () => {
         isDarkMode && element.tagName === "SPAN"
       );
     });
+
+    // Update storage and UI synchronously
     localStorage.setItem("darkMode", isDarkMode);
+
+    const darkModeIcon = document.getElementById("dark-mode-toggle-icon");
+    const lightModeIcon = document.getElementById("light-mode-toggle");
+
+    if (darkModeIcon && lightModeIcon) {
+      darkModeIcon.style.display = isDarkMode ? "none" : "block";
+      lightModeIcon.style.display = isDarkMode ? "block" : "none";
+    }
   };
 
-  const toggleDarkMode = () => applyMode(true);
-  const toggleLightMode = () => applyMode(false);
+  const toggleMode = () => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    applyMode(!isDarkMode);
+  };
 
-  document
-    .getElementById("dark-mode-toggle")
-    .addEventListener("click", toggleDarkMode);
-  document
-    .getElementById("light-mode-toggle")
-    .addEventListener("click", toggleLightMode);
+  const darkModeToggleBtn = document.getElementById("dark-mode-toggle");
+
+  if (darkModeToggleBtn) {
+    darkModeToggleBtn.addEventListener("click", toggleMode);
+  }
 
   if (localStorage.getItem("darkMode") === "true") {
-    toggleDarkMode();
+    applyMode(true);
   } else {
-    toggleLightMode();
+    applyMode(false);
   }
-});
 
-jQuery(document).ready(function ($) {
-  $("#dark-mode-toggle, #light-mode-toggle").click(function () {
-    // Toggle visibility between the dark mode and light mode icons
-    $("#dark-mode-toggle").toggle();
-    $("#light-mode-toggle").toggle();
+  jQuery(document).ready(function ($) {
+    $("#dark-mode-toggle-icon, #light-mode-toggle").click(function () {
+      toggleMode();
+    });
   });
 });
