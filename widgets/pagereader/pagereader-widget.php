@@ -50,7 +50,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                     'icon' => __( 'Icon', 'aveo-access' ),
                 ],
                 'default' => 'button',
-                'description' => __( 'Vælg mellem knap eller icon til at toggle darkmode', 'aveo-access' ),
+                'description' => __( 'Vælg mellem knap eller icon til at toggle tekstoplæser', 'aveo-access' ),
             ]
         );
 
@@ -97,7 +97,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_icon_color',
             [
-                'label' => __( 'Turn Off TTS - Icon Color', 'aveo-access' ),
+                'label' => __( 'Turn On TTS - Icon Color', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',  // Provide a default color
                 'condition' => [
