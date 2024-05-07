@@ -165,6 +165,15 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 ],
             ]
         );
+
+        // Divider for controls
+        $this->add_control(
+            'dark_mode_divider',
+            [
+                'type' => Controls_Manager::DIVIDER,
+                'style' => 'thick',
+            ]
+        );
         
         
         
@@ -245,6 +254,19 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 ],
             ]
         ); 
+
+        // Color picker for buttons
+        $this->add_control(
+            'dark_mode_button_color',
+            [
+                'label' => __( 'Dark Mode Button Color', 'aveo-access' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    'color: {{VALUE}};',
+                ],
+                'description' => __( 'Ændre baggrundsfarven på button element', 'aveo-access' ),
+            ]
+        );
 
         
    
@@ -421,6 +443,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             echo '
                 div.dark-mode-div-bg, #e-con-inner.dark-mode-div-bg {
                     background-color: ' . $settings['dark_mode_div_bg_color'] . ' !important;
+                    color: ' . $settings['dark_mode_paragraph_color'] . ' !important;
                 }
             ';
         }
@@ -441,7 +464,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         }
         if (!empty($settings['dark_mode_a_color'])) {
             echo '
-                a.dark-mode-link  {
+                a.dark-mode-link, svg.dark-mode-link  {
                     color: ' . $settings['dark_mode_a_color'] . ' !important;
                 }
             ';
@@ -453,6 +476,16 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 }
             ';
         }
+        if (!empty($settings['dark_mode_button_color'])) {
+            echo '
+                button.dark-mode-button {
+                    background-color: ' . $settings['dark_mode_button_color'] . ' !important;
+                    color: ' . $settings['dark_mode_button_text_color'] . ' !important;
+                }
+            ';
+        }
+
+
         echo '</style>';
     }
     

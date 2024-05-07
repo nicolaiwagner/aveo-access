@@ -4,6 +4,7 @@ add_action('admin_init', 'aveo_access_settings_init');
 add_action('admin_menu', 'aveo_access_add_settings_menu', 60);
 
 function aveo_access_add_settings_menu() {
+    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
     if (is_plugin_active('aveo-addons/aveo-addons.php')) {
         add_submenu_page(
             'aveo_addons_settings', // Parent slug from the other plugin

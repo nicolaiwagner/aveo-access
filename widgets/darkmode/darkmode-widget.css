@@ -20,6 +20,11 @@
   background-color: #333;
 }
 
+.dark-mode .dark-mode-button {
+  background-color: #333;
+  color: white;
+}
+
 .light-mode-icon {
   display: none; /* Start hidden */
 }
