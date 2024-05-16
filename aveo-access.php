@@ -2,7 +2,7 @@
 /*
  * Plugin Name:       Aveo Accessibility
  * Plugin URI:        https://aveo.dk/
- * Description:       Værktøj og widgets til at forbedre tilgængelighed på hjemmesider/webshops.
+ * Description:       Værktøj og widgets til at forbedre tilgængelighed på hjemmesider/webshops. Kontrolpanel og information til plugin kan findes som undermenu til Aveo Addons.
  * Version:           1.0.0
  * Author:            Aveo
  * Update URI:        https://aveo.dk/

@@ -83,17 +83,27 @@ function aveo_access_options_page() {
     }
 
     .settings-content-text {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .settings-widget-wrapper {
         display: flex;
         flex-direction: row;
-        margin: 20px;
         padding: 14px;
+        margin-right: 10px;
         background-color: antiquewhite;
-        width: 100%;
+        width: 97%;
         gap: 20px;
+    }
+    .settings-widget-wrapper h2{
+        font-size: 26px;
+        border-right: 2px solid #000;
+        padding-right: 10px;
+    }
+
+    .settings-widget-wrapper h3 {
+        font-size: 24px;
+        
     }
 
     .settings-widget-container {
@@ -108,6 +118,14 @@ function aveo_access_options_page() {
     .settings-widget-container h2 {
         font-size: 26px;
     }
+    .settings-content-pdf-wrapper p {
+        font-size: 20px;
+        
+
+    }
+    .settings-text-for-widgets {
+        font-size: 20px;
+    }
 </style>
     <form action='options.php' method='post'>
         <?php settings_fields('aveoAccess'); ?>
@@ -116,18 +134,33 @@ function aveo_access_options_page() {
             <p class="settings-content-text">
                 Dette plugin er designet til at fremme webtilgængeligheden af Aveo's tekniske løsninger. Det er skabt for at understøtte arbejdsprocesserne og forenkle udviklingsopgaver.
                 <br /><br />
-                Aveo Accessibility indeholder en række tilgængeligheds Widgets, der kan implementeres for at forbedre tilgængeligheden for brugere med forskellige funktionsnedsættelser. Desuden tilbydes der adgang til PDF-filer, der indeholder vigtige oplysninger om retningslinjer, vejledninger og centrale fokusområder for at opnå optimal tilgængelighed.
+                Aveo Accessibility indeholder en række tilgængeligheds <b>Widgets</b>, der kan implementeres for at forbedre tilgængeligheden for brugere med forskellige funktionsnedsættelser. 
+                Desuden tilbydes der adgang til PDF-filer, der indeholder vigtige oplysninger om <b>retningslinjer, vejledninger </b> og centrale <b>fokusområder</b> for at opnå optimal tilgængelighed.
                 <br /><br />
-                
-                <p><a href="/wp-content/plugins/aveo-access/content/tjekliste-tilgængelighed.pdf" target="_blank">Tjekliste ved implementering af webtilgængelighed</a></p>
-                <p><a href="/wp-content/plugins/aveo-access/content/aveowa-cheatsheet.pdf" target="_blank">Information omkring webtilgængelighed og fokuspunkter, guidelines, principper og "nice to know"</a></p>
-                
+                Dokument 1: Læs for at få en dybere forståelse for kravene til webtilgængelighed. 
+                Relevant information om successkriterie niveua (A, AA, AAA), guidelines og principper for bedre at forstå tjeklisten.
                 <br /><br />
-                Nedenfor finder i navn på webtilgængeligheds widgets og en kort beskrivelse. Widgets kan findes i Elementor hvis plugin er aktiveret.
+                Dokument 2: Tjekliste for tilgængelighed på tekniske løsninger. 
+                Brug den overordnede til alle løsninger og læs om de forskellige brugergrupper (hørehæmmede/døve, svagtseende/blinde osv.) alt efter kundebehov og målgruppe
+                <div class="settings-content-pdf-wrapper"> 
+
+                    <p><a href="/wp-content/plugins/aveo-access/content/aveowa-cheatsheet.pdf" target="_blank">1. Information omkring webtilgængelighed og fokuspunkter, guidelines, principper og "nice to know"</a></p>
+                    <p><a href="/wp-content/plugins/aveo-access/content/tjekliste-tilgængelighed.pdf" target="_blank">2. Tjekliste ved implementering af webtilgængelighed</a></p>
+                </div>
+                
+                <br />
+               
             </p>
+           
+        </div>
+        <p class="settings-text-for-widgets">Fremsøg widgets i Elementor ved brug af <b>Aveo WA </b>. Widgets kan findes i Elementor hvis plugin er aktiveret.
+            <br>
+            Nedenfor finder i navn på webtilgængeligheds widgets og en kort beskrivelse.
+        </p>
             <div class="settings-widget-wrapper">
+                <h2>Widgets</h2>
                 <div class="settings-widget-container">
-                    <h2>Aveo WA - Dark Mode Toggle</h2>
+                    <h3>Aveo WA - Dark Mode Toggle</h2>
                     <p>
                         Denne widget gør det muligt at implementere mørkt tema på kundeløsninger. Widget kontrolpanelet giver mulighed for at brugerdefinere den tekniske løsning med udgangspunkt i løsningens designidentitet.
                         <br />
@@ -135,19 +168,19 @@ function aveo_access_options_page() {
                     </p>
                 </div>
                 <div class="settings-widget-container">
-                    <h2>Aveo WA - Page Reader TTS</h2>
+                    <h3>Aveo WA - Page Reader TTS</h2>
                     <p>
                         Denne widget integrerer et TTSReader-script, som tilføjer en sideoplæser i bunden af websiden. Sideoplæseren scanner automatisk siden for overskrifter og paragrafer og læser indholdet op i kronologisk rækkefølge for brugeren. Dette gør websiden mere tilgængelig og brugervenlig, især for personer med synsbesvær eller læsevanskeligheder.
                     </p>
                 </div>
                 <div class="settings-widget-container">
-                    <h2>Aveo WA - Text Size Control</h2>
+                    <h3>Aveo WA - Text Size Control</h2>
                     <p>
                         Med denne widget kan brugeren nemt justere tekststørrelser på en hjemmeside. Det tilbyder muligheder for at gøre teksten større, mindre eller nulstille den til standardstørrelsen. Dette værktøj er designet til at forbedre læsbarheden og gøre indholdet mere tilgængeligt for alle brugere, uanset deres synsbehov.
                     </p>
                 </div>
             </div>
-        </div>
+        
         <?php submit_button(); ?>
     </form>
     <?php
