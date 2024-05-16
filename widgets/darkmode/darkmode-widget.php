@@ -46,7 +46,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
                 'label' => __( 'Toggle Type', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'button' => __( 'Button', 'aveo-access' ),
+                    'button' => __( 'Knap', 'aveo-access' ),
                     'icon' => __( 'Icon', 'aveo-access' ),
                 ],
                 'default' => 'button',
@@ -58,7 +58,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_icon_font_size',
             [
-                'label' => __( 'Icon Size', 'aveo-access' ),
+                'label' => __( 'Icon størrelse', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'em', 'rem' ],
                 'range' => [
@@ -97,7 +97,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_icon_color',
             [
-                'label' => __( 'Icon Color for Darkmode', 'aveo-access' ),
+                'label' => __( 'Icon farve til darkmode', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',  // Provide a default color
                 'condition' => [
@@ -112,7 +112,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_light_mode_icon_color',
             [
-                'label' => __( 'Light Mode Icon Color', 'aveo-access' ),
+                'label' => __( 'Icon farve til light mode', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff', // Default color for light mode icon
                 'selectors' => [
@@ -133,7 +133,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_text',
             [
-                'label' => __( 'Button Text', 'aveo-access' ),
+                'label' => __( 'Knap tekst', 'aveo-access' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => __( 'Toggle Dark Mode', 'aveo-access' ),
                 'placeholder' => __( 'Enter button text here', 'aveo-access' ),
@@ -147,7 +147,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_padding',
             [
-                'label' => __( 'Button Size', 'aveo-access' ),
+                'label' => __( 'Knap størrelse', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     '5px 10px'  => __( 'Extra Small', 'aveo-access' ),
@@ -182,7 +182,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_bg_color',
             [
-                'label' => __( 'Dark Mode Background Color', 'aveo-access' ),
+                'label' => __( 'Dark Mode baggrundsfarve', 'aveo-access' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     'background-color: {{VALUE}}; color: white;',
@@ -195,7 +195,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_div_bg_color',
             [
-                'label' => __( 'Dark Mode Div Background Color', 'aveo-access' ),
+                'label' => __( 'Dark Mode div baggrundsfarve', 'aveo-access' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                'selectors' => [
                     'background-color: {{VALUE}};',
@@ -208,7 +208,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_header_color',
             [
-                'label' => __( 'Dark Mode Header Text Color', 'aveo-access' ),
+                'label' => __( 'Dark Mode header tekst farve', 'aveo-access' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     'color: {{VALUE}};',
@@ -221,7 +221,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_paragraph_color',
             [
-                'label' => __( 'Dark Mode Paragraph Text Color', 'aveo-access' ),
+                'label' => __( 'Dark Mode paragraph tekst farve', 'aveo-access' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     'color: {{VALUE}}; ',
@@ -234,7 +234,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_a_color',
             [
-                'label' => __( 'Dark Mode A Tag Color', 'aveo-access' ),
+                'label' => __( 'Dark Mode a-tag farve', 'aveo-access' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     'color: {{VALUE}};',
@@ -247,7 +247,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_span_color',
             [
-                'label' => __( 'Dark Mode Span Tag Color', 'aveo-access' ),
+                'label' => __( 'Dark Mode span-tag farve', 'aveo-access' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     'color: {{VALUE}};',
@@ -259,7 +259,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_color',
             [
-                'label' => __( 'Dark Mode Button Color', 'aveo-access' ),
+                'label' => __( 'Dark Mode knap farve', 'aveo-access' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     'color: {{VALUE}};',
@@ -290,7 +290,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'dark_mode_button_typography',
-                'label' => __( 'Button Typography', 'aveo-access' ),
+                'label' => __( 'Typography', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #dark-mode-toggle',
                 'condition' => [
                     'toggle_type' => 'button',
@@ -302,7 +302,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_text_color',
             [
-                'label' => __('Button Text Color', 'text-domain'),
+                'label' => __('Tekst farve', 'text-domain'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} #dark-mode-toggle' => 'color: {{VALUE}};',
@@ -315,7 +315,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_text_size',
             [
-                'label' => __( 'Button Text Size', 'aveo-access' ),
+                'label' => __( 'Tekst størrelse', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'em', 'rem' ],
                 'selectors' => [
@@ -329,7 +329,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_background_color',
             [
-                'label' => __( 'Button Background Color', 'aveo-access' ),
+                'label' => __( 'Baggrundsfarve', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} #dark-mode-toggle' => 'background-color: {{VALUE}};',
@@ -341,7 +341,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_border_type',
             [
-                'label' => __( 'Button Border Type', 'aveo-access' ),
+                'label' => __( 'Border type', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'none' => __( 'None', 'aveo-access' ),
@@ -365,7 +365,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_border_color',
             [
-                'label' => __( 'Button Border Color', 'aveo-access' ),
+                'label' => __( 'Border farve', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                'selectors' => [
                     '{{WRAPPER}} #dark-mode-toggle' => 'border-color: {{VALUE}};',
@@ -377,7 +377,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'dark_mode_button_border_radius',
             [
-                'label' => __( 'Button Border Radius', 'aveo-access' ),
+                'label' => __( 'Hjørneradius', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -391,7 +391,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'dark_mode_button_box_shadow',
-                'label' => __( 'Button Box Shadows', 'aveo-access' ),
+                'label' => __( 'Box shadows', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #dark-mode-toggle',
             ]
         );
@@ -400,7 +400,7 @@ class Darkmode_Widget extends Elementor\Widget_Base {
         $this->add_responsive_control(
             'dark_mode_button_spacing',
             [
-                'label' => __( 'Button Spacing', 'aveo-access' ),
+                'label' => __( 'Indvendig afstand', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [

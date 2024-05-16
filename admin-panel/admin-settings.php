@@ -119,7 +119,7 @@ function aveo_access_options_page() {
                 Aveo Accessibility indeholder en række tilgængeligheds Widgets, der kan implementeres for at forbedre tilgængeligheden for brugere med forskellige funktionsnedsættelser. Desuden tilbydes der adgang til PDF-filer, der indeholder vigtige oplysninger om retningslinjer, vejledninger og centrale fokusområder for at opnå optimal tilgængelighed.
                 <br /><br />
                 
-                <p><a href="#" target="_blank">Tjekliste ved implementering af webtilgængelighed</a></p>
+                <p><a href="/wp-content/plugins/aveo-access/content/tjekliste-tilgængelighed.pdf" target="_blank">Tjekliste ved implementering af webtilgængelighed</a></p>
                 <p><a href="/wp-content/plugins/aveo-access/content/aveowa-cheatsheet.pdf" target="_blank">Information omkring webtilgængelighed og fokuspunkter, guidelines, principper og "nice to know"</a></p>
                 
                 <br /><br />

@@ -46,7 +46,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
                 'label' => __( 'Toggle Type', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'button' => __( 'Button', 'aveo-access' ),
+                    'button' => __( 'Knap', 'aveo-access' ),
                     'icon' => __( 'Icon', 'aveo-access' ),
                 ],
                 'default' => 'button',
@@ -58,7 +58,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_icon_font_size',
             [
-                'label' => __( 'Icon Size', 'aveo-access' ),
+                'label' => __( 'Icon størrelse', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'em', 'rem' ],
                 'range' => [
@@ -97,7 +97,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_icon_color',
             [
-                'label' => __( 'Turn On TTS - Icon Color', 'aveo-access' ),
+                'label' => __( 'Aktiver TTS - Icon farve', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',  // Provide a default color
                 'condition' => [
@@ -113,7 +113,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_light_mode_icon_color',
             [
-                'label' => __( 'Turn Off TTS - Icon Color', 'aveo-access' ),
+                'label' => __( 'Deaktiver TTS - Icon farve', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff', // Default color for light mode icon
                 'selectors' => [
@@ -134,7 +134,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_text',
             [
-                'label' => __( 'Button Text', 'aveo-access' ),
+                'label' => __( 'Knap tekst', 'aveo-access' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => __( 'Toggle TTS', 'aveo-access' ),
                 'placeholder' => __( 'Enter button text here', 'aveo-access' ),
@@ -148,7 +148,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_padding',
             [
-                'label' => __( 'Button Size', 'aveo-access' ),
+                'label' => __( 'Knap størrelse', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     '5px 10px'  => __( 'Extra Small', 'aveo-access' ),
@@ -190,7 +190,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'page_reader_button_typography',
-                'label' => __( 'Button Typography', 'aveo-access' ),
+                'label' => __( 'Typography', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #page-reader-toggle-button',
                 'condition' => [
                     'toggle_type' => 'button',
@@ -202,7 +202,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_text_color',
             [
-                'label' => __('Button Text Color', 'text-domain'),
+                'label' => __('Tekst farve', 'text-domain'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} #page-reader-toggle-button' => 'color: {{VALUE}};',
@@ -215,7 +215,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_text_size',
             [
-                'label' => __( 'Button Text Size', 'aveo-access' ),
+                'label' => __( 'Tekst størrelse', 'aveo-access' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'em', 'rem' ],
                 'selectors' => [
@@ -229,7 +229,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_background_color',
             [
-                'label' => __( 'Button Background Color', 'aveo-access' ),
+                'label' => __( 'Baggrundsfarve', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} #page-reader-toggle-button' => 'background-color: {{VALUE}};',
@@ -241,7 +241,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_border_type',
             [
-                'label' => __( 'Button Border Type', 'aveo-access' ),
+                'label' => __( 'Border type', 'aveo-access' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'none' => __( 'None', 'aveo-access' ),
@@ -265,7 +265,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_border_color',
             [
-                'label' => __( 'Button Border Color', 'aveo-access' ),
+                'label' => __( 'Border farve', 'aveo-access' ),
                 'type' => Controls_Manager::COLOR,
                'selectors' => [
                     '{{WRAPPER}} #page-reader-toggle-button' => 'border-color: {{VALUE}};',
@@ -277,7 +277,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_control(
             'page_reader_button_border_radius',
             [
-                'label' => __( 'Button Border Radius', 'aveo-access' ),
+                'label' => __( 'Hjørneradius', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -291,7 +291,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'page_reader_button_box_shadow',
-                'label' => __( 'Button Box Shadows', 'aveo-access' ),
+                'label' => __( 'Box Shadows', 'aveo-access' ),
                 'selector' => '{{WRAPPER}} #page-reader-toggle-button',
             ]
         );
@@ -300,7 +300,7 @@ class Pagereader_Widget extends Elementor\Widget_Base {
         $this->add_responsive_control(
             'page_reader_button_spacing',
             [
-                'label' => __( 'Button Spacing', 'aveo-access' ),
+                'label' => __( 'Indvendig afstand', 'aveo-access' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
