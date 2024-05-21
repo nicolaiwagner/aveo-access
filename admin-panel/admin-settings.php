@@ -109,6 +109,7 @@ function aveo_access_options_page() {
     .settings-widget-container {
         flex: 1;
         margin-inline: 20px;
+        
     }
 
     .settings-widget-container p {
@@ -164,7 +165,12 @@ function aveo_access_options_page() {
                     <p>
                         Denne widget gør det muligt at implementere mørkt tema på kundeløsninger. Widget kontrolpanelet giver mulighed for at brugerdefinere den tekniske løsning med udgangspunkt i løsningens designidentitet.
                         <br />
-                        F.eks. bliver lyse grønne farver brugt på kundeløsningen, og det er muligt at style dark mode temaet efter mørkere grønne farver.
+                        F.eks. bliver lyse grønne farver brugt på kundeløsningen, og det er muligt at style dark mode temaet efter mørkere grønne farver. 
+                        <br>
+                        <b> Widget placeres i header element så script kører på alle undersider. </b>
+                        
+                        
+                        
                     </p>
                 </div>
                 <div class="settings-widget-container">
